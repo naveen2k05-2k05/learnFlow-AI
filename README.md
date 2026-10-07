@@ -81,3 +81,8 @@ Instead of manually searching through lengthy documents, LearnFlow AI uses **Ret
                     ┌─────────────────────┐
                     │ Contextual Answer   │
                     └─────────────────────┘
+
+
+
+📄 License
+MIT License
