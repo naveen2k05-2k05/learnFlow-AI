@@ -1,165 +1,55 @@
 # LearnFlow AI
 
-LearnFlow AI is a local AI-powered PDF question-answering application built around Retrieval-Augmented Generation (RAG).
+LearnFlow AI is a local AI-powered PDF question-answering application built using **Retrieval-Augmented Generation (RAG)**.
 
-## Current Status
+It allows users to upload PDF documents and interact with them through natural-language questions. The application extracts document content, creates semantic embeddings, stores them in a FAISS vector index, retrieves the most relevant content, and generates context-aware responses using a local **Ollama + Llama 2** model.
 
-Phase 1 — Application foundation.
+## Overview
 
-Included:
-- React + Vite frontend
-- FastAPI backend
-- PDF upload validation
-- Session management foundation
-- Responsive AI-product-style interface
-- Backend health monitoring
-- Clear chat/reset controls
-- Environment configuration
-- GitHub-ready project structure
+LearnFlow AI is designed to make long PDF documents easier to understand and query without manually searching through hundreds of pages.
 
-The complete RAG pipeline is added in subsequent phases.
+The application provides:
 
-## Planned RAG Pipeline
+- PDF document upload
+- Automatic PDF text extraction
+- Document chunking
+- Hugging Face embeddings
+- FAISS vector indexing
+- Semantic similarity search
+- Top-3 relevant chunk retrieval
+- Local LLM inference using Ollama
+- Llama 2-powered responses
+- Conversational follow-up questions
+- Session-based conversation context
+- Clear chat functionality
+- Document/session reset
+- Responsive modern AI-product interface
+
+## RAG Pipeline
 
 ```text
-PDF
- ↓
+PDF Upload
+    ↓
 PyPDFLoader
- ↓
-Document Extraction
- ↓
+    ↓
+Document Text Extraction
+    ↓
 Recursive Character Text Splitting
- ↓
+    ↓
 Hugging Face Embeddings
- ↓
-FAISS
- ↓
+    ↓
+FAISS Vector Store
+    ↓
 Similarity Search
- ↓
-Top 3 Chunks
- ↓
+    ↓
+Top 3 Relevant Chunks
+    ↓
 Context Construction
- ↓
+    ↓
+Conversation Context
+    ↓
 Ollama
- ↓
+    ↓
 Llama 2
- ↓
+    ↓
 Context-Aware Answer
-```
-
-## Technology Stack
-
-### Frontend
-- React
-- Vite
-- JavaScript
-- CSS
-
-### Backend
-- Python
-- FastAPI
-- Pydantic
-
-### AI / RAG
-- LangChain
-- PyPDFLoader
-- Hugging Face embeddings
-- FAISS
-- Ollama
-- Llama 2
-
-## Requirements
-
-- Python 3.11+
-- Node.js 20.19+ or 22.12+
-- npm
-- Ollama
-- Llama 2 model
-
-## Installation
-
-### Backend
-
-```bash
-cd backend
-python -m venv .venv
-```
-
-Windows:
-
-```bash
-.venv\Scripts\activate
-```
-
-Then:
-
-```bash
-pip install -r requirements.txt
-uvicorn app.main:app --reload
-```
-
-Backend:
-`http://127.0.0.1:8000`
-
-Health:
-`http://127.0.0.1:8000/api/health`
-
-### Frontend
-
-Open another terminal:
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-Frontend:
-`http://127.0.0.1:5173`
-
-## Ollama
-
-Install Ollama separately and pull the requested model:
-
-```bash
-ollama pull llama2
-```
-
-## Usage
-
-1. Start Ollama.
-2. Start the FastAPI backend.
-3. Start the React frontend.
-4. Upload a PDF.
-5. Continue with questions after the RAG pipeline is enabled.
-
-## Performance
-
-The intended architecture processes and embeds a document once during upload, builds a FAISS index once, and reuses it for subsequent questions.
-
-## Limitations
-
-- Local inference depends on available hardware.
-- Very large documents can take significant time to process.
-- Scanned/image-only PDFs require OCR support, which is not included in Phase 1.
-- Session state is currently in memory.
-- Production-scale multi-user deployment is outside the scope of the initial version.
-
-## Future Improvements
-
-- Persistent document storage
-- Redis-backed sessions
-- PostgreSQL metadata
-- Streaming responses
-- Retrieval evaluation
-- Reranking
-- Hybrid retrieval
-- OCR
-- Citation highlighting
-- Authentication
-- Background processing
-- Production vector database
-
-## License
-
-MIT License.
