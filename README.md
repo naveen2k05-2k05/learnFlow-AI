@@ -17,7 +17,7 @@
 
 **LearnFlow AI** is a local AI-powered document assistant that allows users to upload PDF documents and interact with them using natural language.
 
-Instead of manually searching through lengthy documents, LearnFlow AI uses **Retrieval-Augmented Generation (RAG)** to find the most relevant sections of the uploaded document and provide context-aware answers using a locally running **Llama 2** model.
+Instead of manually searching through lengthy documents, LearnFlow AI uses **Retrieval-Augmented Generation (RAG)** to find the most relevant sections of the uploaded document and provide context-aware answers using a locally running **Llama 2** model
 
 ### What it solves
 
